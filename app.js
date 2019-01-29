@@ -184,7 +184,7 @@ app.get("/BigBen/meals", function(req, res, next){
              })
              }, function(req, res) {
                 //  var a = req.mealsanddrinks;
-                 console.log(req.mealsanddrinks);
+                //  console.log(req.mealsanddrinks);
                  res.render("showBigBen",{myFood:req.mealsanddrinks});
                  
              });
