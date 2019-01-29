@@ -1,0 +1,79 @@
+<%include partials/header%>
+<div class="container">
+    
+    <h2>Available Meals at Arkonor</h2>
+    <%var i = 0%>
+    <% myFood[0].forEach(function(entry){%>
+        <%if(items==0){%>
+            <h3>No food Available at this moment!</h3>
+        <% }%>
+        <%if(i<3){%>
+            <%var price = " "%>
+            <%if(entry.price!=null){%>
+            <%    price = "₵ "+entry.price; %>
+            <% } %>
+        
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+            </ul>
+            <%i = i + 1 %>
+        
+        
+        <% }else{ %>
+            <div class="collapse" id="collapseExample1">
+                <%var price = " "%>
+                <%if(entry.price!=null){%>
+                <%    price = "₵ "+entry.price; %>
+                <% } %>
+            
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+                </ul>
+            </div>
+        <% }%>
+        
+    <% }); %>    
+
+    <a href="#collapseExample1" class="btn btn-primary push bottom" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+         Load more items...
+    </a>
+    
+    <h2>Available Drinks at Arkonor</h2>
+    <%var items = 0%>
+    <% myFood[1].forEach(function(entry){%>
+        <%if(items==0){%>
+            <h3>No Drinks Available at this moment!</h3>
+        <% }%>
+        
+        <%if(items<3){%>
+            <%var price = " "%>
+            <%if(entry.price!=null){%>
+            <%    price = "₵ "+entry.price; %>
+            <% } %>
+        
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+            </ul>
+            <%items = items+1%>
+            
+        <% }else{ %>
+            <div class="collapse" id="collapseExample">
+                <%var price = " "%>
+                <%if(entry.price!=null){%>
+                <%    price = "₵ "+entry.price; %>
+                <% } %>
+            
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+                </ul>
+            </div>
+        <% }%>
+        
+    <% }); %>
+
+    <a href="#collapseExample" class="btn btn-primary push bottom" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+         Load more items...
+    </a>
+</div>
+
+<%include partials/footer%>

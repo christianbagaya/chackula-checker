@@ -1,0 +1,91 @@
+/*body{*/
+    
+/*}*/
+.nav{
+    margin-bottom:20px;
+}
+.navbar-light{
+    background-color :#781318;
+    color: rgb(255,240,220);
+    margin-bottom:20px;
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-brand {
+    color: rgba(240,240,240,.9);
+}
+.nav-link:hover{
+    /*background-color: #400407;*/
+    /*color: rgb(255,240,220);*/
+}
+.navbar-brand:hover{
+    /*background-color: #400407;*/
+    /*color: rgb(255,240,220);*/
+}
+.badge-pill{
+    /*margin-left:;*/
+    /*margin-right: 10%;*/
+    margin-left: 90%;
+    
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    font-size: 15px;
+}
+.navbar-light .navbar-toggler-icon{
+    color: white;
+    border-color: white;
+    /*background-color: white;*/
+}
+
+.btn-primary{
+    background-color: #781318;
+    border-color: #781318;
+}
+.btn-primary:hover{
+    background-color: #400407;
+}
+.push{
+    margin-top: 10px;
+}
+.fa-bars{
+    color:white;
+    border-color:white;
+}
+
+li .list-group-item{
+    background-color: red;
+}
+
+li .list-group-item:nth-child(2n){
+	background-color: #f7f7f7;
+}
+.myCenter{
+    padding-top: 5%;
+    text-align: center;
+}
+hr{
+    margin-left:20%;
+    margin-right:20%;
+}
+
+/*.list-group-flush .list-group-item{*/
+    
+/*}*/
+
+
+.dropdown.separate, .separete{
+    /*position: center;*/
+    margin-top: 15px;
+}
+
+.bottom{
+    margin-bottom: 10%;
+}
+
+.page-footer{
+    bottom:0;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    text-align:center;
+}
+/*font-small blue*/
