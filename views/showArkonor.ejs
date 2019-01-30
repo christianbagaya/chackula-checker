@@ -4,9 +4,6 @@
     <h2>Available Meals at Arkonor</h2>
     <%var i = 0%>
     <% myFood[0].forEach(function(entry){%>
-        <%if(items==0){%>
-            <h3>No food Available at this moment!</h3>
-        <% }%>
         <%if(i<3){%>
             <%var price = " "%>
             <%if(entry.price!=null){%>
@@ -26,8 +23,8 @@
                 <%    price = "₵ "+entry.price; %>
                 <% } %>
             
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+                <!--<ul class="list-group list-group-flush">-->
+                    <li class="list-group-item noborder"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
                 </ul>
             </div>
         <% }%>
@@ -41,9 +38,6 @@
     <h2>Available Drinks at Arkonor</h2>
     <%var items = 0%>
     <% myFood[1].forEach(function(entry){%>
-        <%if(items==0){%>
-            <h3>No Drinks Available at this moment!</h3>
-        <% }%>
         
         <%if(items<3){%>
             <%var price = " "%>
@@ -63,8 +57,8 @@
                 <%    price = "₵ "+entry.price; %>
                 <% } %>
             
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
+                <!--<ul class="list-group list-group-flush">-->
+                    <li class="list-group-item noborder"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span></li>
                 </ul>
             </div>
         <% }%>

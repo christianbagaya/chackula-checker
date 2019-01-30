@@ -89,3 +89,8 @@ hr{
     text-align:center;
 }
 /*font-small blue*/
+
+.noborder{
+    border-left: none;
+    border-right: none;
+}
