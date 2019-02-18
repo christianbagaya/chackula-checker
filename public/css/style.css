@@ -94,3 +94,6 @@ hr{
     border-left: none;
     border-right: none;
 }
+.footerDow{
+    bottom: 0;
+}
