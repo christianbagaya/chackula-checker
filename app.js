@@ -59,6 +59,9 @@ app.get("/", function(req, res) {
     
 })
 
+app.get("/notFound", function(req, res, next) {
+    res.render("notAvailable");
+})
 
 
 
@@ -384,7 +387,7 @@ User.find({}, function(err, username){
         console.log(err)
     }else{
         var a = {usernames:username};
-        console.log(a);
+        // console.log(a);
         // console.log(a.username);
     }
     
