@@ -52,7 +52,7 @@ var DrinkModelBigBen = mongoose.model("DrinksBigben", Mealschema);
 
 
 
-//home route for both bigben and Arkornor
+//home route for both bigben and akorno
 app.get("/", function(req, res) {
     // console.log(MealModelArkonor.find({}));
     res.render("index");
@@ -68,7 +68,7 @@ app.get("/notFound", function(req, res, next) {
 //**********************************************Arkonor******************************************************************************
 
 //get route that shows the available meals
-app.get("/Arkornor/meals", function(req, res, next){
+app.get("/akorno/meals", function(req, res, next){
     DrinkModelArkonor.find({}, function(err, foundDrinks) {
         if(err){
             console.log(err);
@@ -101,7 +101,7 @@ app.get("/Arkornor/meals", function(req, res, next){
 
 //input route where the user can input
 
-app.post("/Arkornor/meals", function(req, res){
+app.post("/akorno/meals", function(req, res){
    var name = req.body.mealName;
    var price = req.body.price;
    MealModelArkonor.create({mealName:name,price:price}, function(err, {mealName:name}){
@@ -109,14 +109,14 @@ app.post("/Arkornor/meals", function(req, res){
            console.log(err);
        }
        else{
-           res.redirect("/adminPage/Arkornor/meals/new/meals");
+           res.redirect("/adminPage/akorno/meals/new/meals");
        }
    })
    
 });
 
 //insert drinks for arkonor
-app.post("/Arkornor/drinks", function(req, res) {
+app.post("/akorno/drinks", function(req, res) {
     var drinkName = req.body.drinkName;
     var price = req.body.price;
     DrinkModelArkonor.create({mealName:drinkName, price:price}, function(err, {mealName:name}) {
@@ -124,18 +124,18 @@ app.post("/Arkornor/drinks", function(req, res) {
             console.log("Error");
         }
         else{
-            res.redirect("/adminPage/Arkornor/meals/new/drinks");
+            res.redirect("/adminPage/akorno/meals/new/drinks");
         }
     })
     
 })
 
 //get the admin page
-app.get("/adminPage/Arkornor", function(req, res) {
+app.get("/adminPage/akorno", function(req, res) {
    res.render("AdminMain"); 
 });
 //Admin can add a new meal
-app.get("/adminPage/Arkornor/meals/new/meals", isLoggedIn, function(req, res) {
+app.get("/adminPage/akorno/meals/new/meals", isLoggedIn, function(req, res) {
     MealModelArkonor.find({}, function(err, foundMeals){
         if(err){
             console.log(err);
@@ -146,7 +146,7 @@ app.get("/adminPage/Arkornor/meals/new/meals", isLoggedIn, function(req, res) {
     });
     // res.render("new",{entry:myEntries});
 });
-app.get("/adminPage/Arkornor/meals/new/drinks", isLoggedIn, function(req, res) {
+app.get("/adminPage/akorno/meals/new/drinks", isLoggedIn, function(req, res) {
     DrinkModelArkonor.find({},function(err, foundDrinks) {
         if(err){
             console.log(err);
@@ -269,25 +269,25 @@ app.get("/adminPage/BigBen/meals/new/drinks",isLoggedIn, function(req, res) {
 //delete a post
 
 //****************************Delete Arkonor ******************************************
-app.delete("/adminPage/Arkornor/meals/:id",isLoggedIn, function(req, res){
+app.delete("/adminPage/akorno/meals/:id",isLoggedIn, function(req, res){
     MealModelArkonor.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.send("Error, Not removed, try again");
         }
         else{
-            res.redirect("/adminPage/Arkornor/meals/new/meals");
+            res.redirect("/adminPage/akorno/meals/new/meals");
         }
     })
     // res.send("Hello world");
 });
 
-app.delete("/adminPage/Arkornor/drinks/:id",isLoggedIn, function(req, res){
+app.delete("/adminPage/akorno/drinks/:id",isLoggedIn, function(req, res){
     DrinkModelArkonor.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.send("Error, Not removed, try again");
         }
         else{
-            res.redirect("/adminPage/Arkornor/meals/new/drinks");
+            res.redirect("/adminPage/akorno/meals/new/drinks");
         }
     })
     // res.send("Hello world");
@@ -465,7 +465,7 @@ function arkonorMealsAndDrinks(){
             // });
                 
         }
-        console.log(mealsAndDrinksJson);
+        //console.log(mealsAndDrinksJson);
         return mealsAndDrinksJson;
     });
     

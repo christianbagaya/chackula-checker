@@ -4,7 +4,7 @@
 
 <div class = "container">
     <h2>Add the Available Drinks</h2>
-    <form action="/Arkornor/drinks" method="POST">
+    <form action="/akorno/drinks" method="POST">
       <div class="form-group">
         <label for="exampleInputEmail1">Drink Name</label>
         <input name="drinkName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of drink">
@@ -31,7 +31,7 @@
     
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span>
-        <form action="/adminPage/Arkornor/drinks/<%=entry._id%>?_method=DELETE" method = "POST">
+        <form action="/adminPage/akorno/drinks/<%=entry._id%>?_method=DELETE" method = "POST">
             <button  type="submit" class="btn btn-primary">Remove</button>    
         </form>
       </li>
