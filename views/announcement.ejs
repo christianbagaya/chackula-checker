@@ -1,0 +1,22 @@
+<%include partials/header%>
+
+<center><h3>Anouncements</h3></center>
+<hr>
+
+<div class="container">
+    <%myAnnouncements.forEach(function(announcement){%>
+    
+            <div class="jumbotron">
+                <strong class="text-success"><%= announcement.author; %></strong><h5><%=announcement.title;%></h5>
+                <p>
+                    <%= announcement.body;%>
+                </p>
+            </div>
+            <% }) %>
+</div>
+
+    
+
+
+
+<%include partials/footer%>

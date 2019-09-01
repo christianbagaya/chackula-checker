@@ -1,38 +1,101 @@
 <% include partials/header %>
 
-<div class = "container myCenter">
-    <h1><i class="fas fa-utensils"></i> Welcome to the Chakula Checker</h1>
-    <hr>
-    
+<div class="container myCenter">
+  <h1><i class="fas fa-utensils"></i> Welcome to the Chakula Checker</h1>
+  <hr>
+
+
+  <!--<div class="container">-->
+
+  <!--</div>-->
+  <% var myList = [];%>
+  <%myAnnouncements.forEach(function(announcement){%>
+  <%myList.unshift(announcement);%>
+  <% })%>
+
+  <%if(myList.length>0){%>
+
+  <div class="container fuild jumbotron">
+
+    <div class="bd-example">
+      <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner myJumbotron">
+          <div class="carousel-item active">
+            <h4><strong class="text-success"><%= myList[0].author; %></strong></h4>
+            <!--<div class="carousel-caption d-none d-md-block">-->
+            <h5><%=myList[0].title%></h5>
+            <p><%=myList[0].body%></p>
+            <br>
+            <br>
+            <!--</div>-->
+          </div>
+          <%if(myList.length>1){%>
+          <div class="carousel-item">
+            <h4><strong class="text-success"><%= myList[1].author; %></strong></h4>
+            <!--<div class="carousel-caption d-none d-md-block">-->
+            <h5><%=myList[1].title%></h5>
+            <p><%=myList[1].body%></p>
+            <br>
+            <!--</div>-->
+          </div>
+          <% } if(myList.length>2){%>
+
+          <div class="carousel-item">
+            <h4><strong class="text-success"><%= myList[2].author; %></strong></h4>
+            <!--<div class="carousel-caption d-none d-md-block">-->
+            <h5><%=myList[2].title%></h5>
+            <p><%= myList[2].body%></p>
+            <br>
+            <br>
+            <!--</div>-->
+          </div>
+
+        </div>
+        <% }%>
+
+
+        <% }%>
+
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+          <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+          <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+          <span class="sr-only">Next</span>
+        </a>
+
+      </div>
+    </div>
+
+    <a class="btn btn-danger btn-md" href="/announcement">
+      view all announcements
+    </a>
+    <br>
+    <br>
     <p><i>Check available meals and drinks here</i></p>
     <!--<a href="/Arkornor/meals" class="btn btn-primary btn-lg">Arkornor</a> -->
     <!--<a href="/BigBen/meals" class="btn btn-primary btn-lg">BigBen</a> -->
-  <!--<p class="text-center alignment">-->
-  
-  <div class="dropdown separate">
-      <a class="btn btn-primary btn-lg" href="/BigBen/meals">
-        BigBen
-      </a>
-    
-      <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-      <!--  <a class="dropdown-item" href="/BigBen/meals">Meals</a>-->
-      <!--  <a class="dropdown-item" href="/BigBen/drinks">Drinks</a>-->
-      <!--</div>-->
-    </div>
-  
-    <div class="dropdown separate">
+    <!--<p class="text-center alignment">-->
+    <div class="container space">
+
       <a class="btn btn-primary btn-lg" href="/akorno/meals">
         Akorno
       </a>
-    
-      <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">-->
-      <!--  <a class="dropdown-item" href="/Arkornor/meals">Meals</a>-->
-      <!--  <a class="dropdown-item" href="/Arkornor/drinks">Drinks</a>-->
-      <!--</div>-->
+      <a class="btn btn-primary btn-lg" href="/BigBen/meals">
+        BigBen
+      </a>
     </div>
-    
-    
-<!--</p>-->
-</div>    
-<%include partials/footer%>    
+    <div class="container upspace">
+      <a class="btn btn-primary btn-lg" href="/Lynes/meals">
+        Lynes
+      </a>
+    </div>
 
+  </div>
+  <%include partials/footer%>

@@ -1,0 +1,60 @@
+<%include partials/header%>
+
+<div class="container">
+  <form action="/announcement" method="POST">
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">author</label>
+      <select class="browser-default custom-select" name="author">
+        <option selected value="Akorno">Akorno</option>
+        <option value="BigBen">BigBen</option>
+        <option value="Lynes">Lynes</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Title</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Announcement</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Post announcement"
+        name="body"></textarea>
+    </div>
+
+    <input type="submit" class="btn btn-primary"></input>
+  </form>
+  <br>
+
+
+
+  <!--<div class="container fuild">-->
+  <%myAnnouncements.forEach(function(announcement){%>
+
+  <%if(myUsers.toLowerCase()==announcement.author.toLowerCase()){%>
+
+  <div class="jumbotron normalAlign">
+    <strong class="text-success"><%= announcement.author; %><br><br>
+    </strong>
+    <h5><%=announcement.title;%></h5>
+
+    <p>
+      <%= announcement.body;%>
+    </p>
+
+    <form action="/newAnnouncement/<%=announcement._id%>?_method=DELETE" method="POST">
+      <button type="submit" class="btn btn-primary">Remove</button>
+    </form>
+
+  </div>
+
+  <% } %>
+  <% }) %>
+
+  <!--</div>-->
+
+
+</div>
+
+
+<%include partials/footer%>

@@ -1,0 +1,48 @@
+<% include partials/headerAdminLynes %>
+
+
+
+<div class="container">
+  <h2>Add the Available meals</h2>
+  <form action="/Lynes/meals" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Meal Name</label>
+      <input name="mealName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        placeholder="Enter the name of the meal">
+      <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+
+      <!--price-->
+      <label for="exampleInputEmail1">Meal Price</label>
+      <div class="input-group">
+        <input type="text" name="price" class="form-control"
+          aria-label="Dollar amount (with dot and two decimal places)">
+        <div class="input-group-append">
+          <span class="input-group-text">₵</span>
+          <!--<span class="input-group-text">0.00</span>-->
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <h2>Your Available meals</h2>
+  <p>Kindly delete the meals that are no longer available</p>
+  <% myEntries.forEach(function(entry){%>
+  <%var price = " "%>
+  <%if(entry.price!=null){%>
+  <%    price = "₵ "+entry.price; %>
+  <% } %>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= entry.mealName; %><span class="badge badge-primary badge-pill"><%= price%></span>
+      <form action="/adminPage/Lynes/meals/<%=entry._id%>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-primary">Remove</button>
+      </form>
+    </li>
+  </ul>
+  <% }); %>
+</div>
+
+
+
+<% include partials/footer %>
